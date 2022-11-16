@@ -15,7 +15,7 @@ umf4 <- umf_txt[27:28]  # UMF 4 27-28
 cat(umf4)
 
 ## Regex to extract the name of the vertices 
-unlist(str_extract_all(umf4, '\\bP-\\d{2}+'))
+unlist(str_extract_all(umf4, '\\bP-\\s*?\\d{2}+'))
 
 vertex <- c(paste0('P-0', 1:9), paste0('P-', 10:29))
 
