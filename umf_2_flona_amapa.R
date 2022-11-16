@@ -15,19 +15,19 @@ umf2 <- umf_txt[21:22]  # UMF 2 21-22
 cat(umf2)
 
 ## Regex to extract the name of the vertices 
-unlist(str_extract_all(umf2, '\\bP-\\d{2}+'))
+unlist(str_extract_all(umf2, '\\bP-\\s*?\\d{2}+'))
 
 vertex <- c(paste0('P-0', 1:9), paste0('P-', 10:24))
 
 ## Regex to extract longitude and latitude UTM
 # Check out if the regex get all the 63th vertices to east and north coordinates
-summary(unlist(str_extract_all(umf2, '\\bE\\s\\d{3}\\.\\d{3},\\d{2}m')))
+summary(unlist(str_extract_all(umf2, '\\bE\\s*?(\\d{3}\\.\\d{3},\\d{2})m\\b')))
 
 # Did not extract east coordinate from the vertex P-42
-summary(unlist(str_extract_all(umf2, '\\bN\\s\\d{3}\\.\\d{3},\\d{2}m'))) 
+summary(unlist(str_extract_all(umf2, '\\bN\\s*?(\\d{3}\\.\\d{3},\\d{2})m\\b'))) 
 
-east <- unlist(str_extract_all(umf2, '\\bE\\s\\d{3}\\.\\d{3},\\d{2}m'))
-north <- unlist(str_extract_all(umf2, '\\bN\\s\\d{3}\\.\\d{3},\\d{2}m'))
+east <- unlist(str_extract_all(umf2, '\\bE\\s*?(\\d{3}\\.\\d{3},\\d{2})m\\b'))
+north <- unlist(str_extract_all(umf2, '\\bN\\s*?(\\d{3}\\.\\d{3},\\d{2})m\\b'))
 
 
 ## Set a dataframe and save as csv
