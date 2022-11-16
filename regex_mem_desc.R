@@ -62,7 +62,5 @@ df <- data.frame(
         Lat = paste0(lat_gr, '-', lat_min, '-', lat_sec, 'S')
 )
 
-
 ## Salvar como .csv
 write.csv(df, 'D:/vert_cleaned_by_regex.csv', row.names = FALSE)
-
