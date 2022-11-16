@@ -48,4 +48,4 @@ write.csv(df,
 ## Convert the dataframe to sf object and as shapefile
 shp_points <- st_as_sf(df, coords = c('east', 'north'), crs = '31976')
 st_crs(shp_points) <- 'EPSG:31976'
-st_write(shp_points, 'vertices_umf_2_flonas_amapa.shp')
+st_write(shp_points, './output/vertices_umf_2_flonas_amapa.shp')
