@@ -2,13 +2,10 @@
 # mem_desc <- pdftools::pdf_text(
 #         'C:/Users/67147020278/Documents/02047.000056-2003-12/memorial_descritivo_propriedade.pdf'
 # )
-
-mem_desc <- readLines(
-        'C:/Users/rcflo/Downloads/memorial_descritivo_propriedade.txt'
-)
+mem_desc <- readLines('./data/memorial_descritivo_propriedade.txt')
 
 ## Extrair vertices
-vert <- stringr::str_extract(mem_desc, "(P-?\\d{2}+)")
+vert <- stringr::str_extract(mem_desc, "(P-\\d{2}+)")
 vert <- vert[!is.na(vert)]
 vert <- vert[1:5]
 vert
